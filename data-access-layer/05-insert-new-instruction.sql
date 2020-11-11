@@ -43,8 +43,12 @@
 
 
 -- YOUR CODE HERE
-INSERT INTO instructions (specification, recipe_id)
+INSERT INTO instructions 
 VALUES (
+  DEFAULT, 
+  $1,
+  (SELECT count+1 as count from 
     (SELECT COUNT(list_order)
-    FROM instructions)+1, $1
+    FROM instructions) as foo),
+  $2
 );

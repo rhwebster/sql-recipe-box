@@ -8,7 +8,7 @@
 -- user.
 
 -- YOUR CODE HERE
-
+SET ROLE recipe_box_app;
 
 
 
@@ -74,7 +74,10 @@ foreign key (recipe_id) references recipes(id));
 
 -- YOUR CODE HERE
 
-
+CREATE TABLE units_of_measure (
+  id SERIAL primary key,
+  name VARCHAR(20) not null
+);
 
 
 
@@ -97,7 +100,15 @@ foreign key (recipe_id) references recipes(id));
 
 -- YOUR CODE HERE
 
-
+CREATE TABLE ingredients (
+  id SERIAL PRIMARY KEY,
+  amount NUMERIC(5, 2) NOT NULL,
+  unit_of_measure_id INTEGER NOT NULL,
+  food_stuff VARCHAR(500) NOT NULL,
+  recipe_id INTEGER NOT NULL,
+  FOREIGN KEY (unit_of_measure_id) REFERENCES units_of_measure(id),
+  FOREIGN KEY (recipe_id) REFERENCES recipes(id)
+);
 
 
 

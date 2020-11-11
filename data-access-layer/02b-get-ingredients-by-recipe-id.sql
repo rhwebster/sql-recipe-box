@@ -39,3 +39,8 @@
 
 
 -- YOUR CODE HERE
+
+SELECT amount, food_stuff, name FROM ingredients
+INNER JOIN units_of_measure ON units_of_measure.id = ingredients.unit_of_measure_id
+INNER JOIN recipes ON recipes.id = ingredients.recipe_id
+WHERE  recipes.id = $1;

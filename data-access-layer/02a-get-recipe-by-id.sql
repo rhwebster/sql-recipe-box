@@ -17,3 +17,5 @@
 
 
 -- YOUR CODE HERE
+SELECT id, title, created, updated FROM recipes
+WHERE id = $1;

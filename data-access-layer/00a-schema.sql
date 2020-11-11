@@ -19,4 +19,4 @@ CREATE USER recipe_box_app WITH password 'SPuaQ3no';
 
 -- YOUR CODE HERE
 CREATE DATABASE recipe_box WITH owner recipe_box_app;
-REVOKE ALL on recipe_box from PUBLIC;
+REVOKE ALL ON ALL TABLES IN SCHEMA public FROM public;

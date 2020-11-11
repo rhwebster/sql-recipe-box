@@ -17,3 +17,6 @@
 
 
 -- YOUR CODE HERE
+INSERT INTO recipes (id, title) 
+VALUES (default, $1)
+RETURNING id;

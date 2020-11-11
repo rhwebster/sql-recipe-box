@@ -10,7 +10,7 @@ DROP USER IF EXISTS recipe_box_app;
 
 -- YOUR CODE HERE
 
-
+CREATE USER recipe_box_app WITH password 'SPuaQ3no';
 
 
 -- You will need to create a new database for the application named
@@ -18,3 +18,5 @@ DROP USER IF EXISTS recipe_box_app;
 -- connect privileges from PUBLIC just to have good security.
 
 -- YOUR CODE HERE
+CREATE DATABASE recipe_box WITH owner recipe_box_app;
+REVOKE ALL on recipe_box from PUBLIC;

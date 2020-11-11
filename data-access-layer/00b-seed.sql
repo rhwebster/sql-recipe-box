@@ -25,7 +25,11 @@
 -- | updated     | TIMESTAMP    | NOT NULL, DEFAULT CURRENT_TIMESTAMP |
 
 -- YOUR CODE HERE
-
+CREATE table recipes 
+(id SERIAL primary key,
+title VARCHAR(200) not null,
+created TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP,
+updated TIMESTAMP not null DEFAULT CURRENT_TIMESTAMP);
 
 
 
@@ -47,6 +51,12 @@
 -- | recipe_id     | INTEGER     | FK, NOT NULL |
 
 -- YOUR CODE HERE
+CREATE table instructions
+(id SERIAL primary key,
+specification TEXT not null,
+list_order INTEGER not null,
+recipe_id INTEGER not null,
+foreign key (recipe_id) references recipes(id));
 
 
 

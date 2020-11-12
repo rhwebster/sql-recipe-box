@@ -47,8 +47,11 @@ INSERT INTO instructions
 VALUES (
   DEFAULT, 
   $1,
-  (SELECT count+1 as count from 
-    (SELECT COUNT(list_order)
-    FROM instructions) as foo),
+  -- (SELECT COALESCE(MAX(list_order), 0) + 1 
+  -- FROM instructions WHERE recipe_id = $2),
+  -- (SELECT count+1 as count from 
+    (SELECT COUNT(list_order) + 1
+    FROM instructions), 
+  -- as foo),
   $2
 );
